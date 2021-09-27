@@ -7,11 +7,12 @@ import {
 
 export const initialState = {
   smurfs: [],
-  loading: true,
+  loading: false,
   error: "",
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
     case SMURF_LOADING:
       return {

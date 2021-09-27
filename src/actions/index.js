@@ -7,24 +7,27 @@ export const SMURF_FAIL = "SMURF_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
 export const SET_ERROR = "SET_ERROR";
 
-export function fetchSmurfs() {
-  console.log("fetchSmurfs called");
-  return (dispatch, getState) => {
-    console.log("%calling all smurfs", "color; #007AAF");
-    console.log(getState());
-    dispatch(smurfLoad());
-    axios
-      .get("/smurfs")
-      .then((res) => {
-        console.log("success");
-        dispatch(smurfSuccess(res.data));
-      })
-      .catch((err) => {
-        console.log("failure");
-        dispatch(smurfFail(err));
-      });
-  };
-}
+// export function fetchSmurfs() {
+//   console.log("fetchSmurfs called");
+//   return function (dispatch) {
+//     dispatch(smurfLoad());
+//     return axios
+//       .get("/smurfs")
+//       .then(
+//         ({ data }) => dispatch(smurfSuccess(data)),
+//         ({ error }) => dispatch(smurfFail(error))
+//       )
+//       .catch((err) => console.error(err));
+//   };
+// }
+
+export const fetchSmurfs = () => (dispatch) => {
+  dispatch(smurfLoad());
+  axios
+    .get("/smurfs")
+    .then((res) => dispatch(smurfSuccess(res.data)))
+    .catch((err) => dispatch(smurfFail(err)));
+};
 
 export const setError = (message) => {
   return {
@@ -34,9 +37,11 @@ export const setError = (message) => {
 };
 
 export const addSmurf = (smurf) => {
+  console.log("addSmurf called");
+  console.table(smurf);
   return {
     type: ADD_SMURF,
-    payload: { ...smurf, id: Date.now() },
+    payload: { ...smurf },
   };
 };
 

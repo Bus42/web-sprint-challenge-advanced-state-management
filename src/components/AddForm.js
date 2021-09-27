@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setError, addSmurf } from "../actions";
 
-const AddForm = ({error}) => {
+const AddForm = ({ error }) => {
   const [state, setState] = useState({
     name: "",
     position: "",
@@ -18,12 +18,15 @@ const AddForm = ({error}) => {
   };
 
   const handleSubmit = (e) => {
+    console.log("handleSubmit called");
+    console.table(state)
     e.preventDefault();
     if (state.name === "" || state.position === "" || state.nickname === "") {
       //add in error action
-      setError('please fill out all fields')
+      setError("please fill out all fields");
+    } else {
+      addSmurf({ ...state });
     }
-    addSmurf({...state})
   };
 
   return (
@@ -79,7 +82,7 @@ const AddForm = ({error}) => {
             Error: {error}
           </div>
         )}
-        <button>Submit Smurf</button>
+        <button type="submit">Submit Smurf</button>
       </form>
     </section>
   );
