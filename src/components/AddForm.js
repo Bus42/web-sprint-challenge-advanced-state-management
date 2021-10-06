@@ -19,12 +19,9 @@ const AddForm = (props) => {
   };
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit called");
-    console.table(state);
     e.preventDefault();
     if (state.name === "" || state.position === "" || state.nickname === "") {
-      //add in error action
-      setError("please fill out all fields");
+      setError("error no name")
     } else {
       addSmurf({ ...state });
     }

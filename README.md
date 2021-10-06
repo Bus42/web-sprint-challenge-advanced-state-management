@@ -30,18 +30,18 @@ In this project, you will build the reducer, actions and basic redux connects ne
 
 Add in the needed state and reducer cases to hold and modify smurf error messages, loading status, and smurf data. **If at all possible add in action cases one at a time instead of all at once. Test your state connects and reducer cases as necessary.**
 
-- [x] Adds the following state values into the initialState:
+- [X] Adds the following state values into the initialState:
 
   - an array of smurfs
   - a boolean indicating if the app is loading
   - a string indicating a possible error message
 
-- [x] Add in the arguments needed to complete a standard reducer function.
-- [x] Add in a reducer case to accommodate the start of a smurf fetch.
-- [x] Add in a reducer case to accommodate the successful smurf api fetch.
-- [x] Add in a reducer cases to accommodate an error.
-- [x] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, description and an internally generated id) into your smurf list.
-- [ ] Add in a reducer case that adds in a value to the error message.
+- [X] Add in the arguments needed to complete a standard reducer function.
+- [X] Add in a reducer case to accommodate the start of a smurf fetch.
+- [X] Add in a reducer case to accommodate the successful smurf api fetch.
+- [X] Add in a reducer cases to accommodate an error.
+- [X] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, description and an internally generated id) into your smurf list.
+- [X] Add in a reducer case that adds in a value to the error message.
 
 ### Complete index.js
 
