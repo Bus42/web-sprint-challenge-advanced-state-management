@@ -3,15 +3,16 @@ import Smurf from "./Smurf";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
 
-const SmurfList = ({ loading, smurfs }) => {
+const SmurfList = (props) => {
+  const { loading, smurfs, fetchSmurfs } = props;
 
   useEffect(() => {
     try {
       fetchSmurfs();
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }, []);
+  }, [fetchSmurfs]);
 
   if (loading) {
     return <h1>Loading...</h1>;
