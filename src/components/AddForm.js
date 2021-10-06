@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setError, addSmurf } from "../actions";
 
-const AddForm = ({ error }) => {
+const AddForm = (props) => {
+  const { error, setError, addSmurf } = props;
   const [state, setState] = useState({
     name: "",
     position: "",
@@ -19,7 +20,7 @@ const AddForm = ({ error }) => {
 
   const handleSubmit = (e) => {
     console.log("handleSubmit called");
-    console.table(state)
+    console.table(state);
     e.preventDefault();
     if (state.name === "" || state.position === "" || state.nickname === "") {
       //add in error action

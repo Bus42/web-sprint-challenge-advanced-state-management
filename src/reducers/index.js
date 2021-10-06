@@ -12,7 +12,7 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(action)
+  console.log(action.payload)
   switch (action.type) {
     case SMURF_LOADING:
       return {

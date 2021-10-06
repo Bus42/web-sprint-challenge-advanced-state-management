@@ -6,7 +6,6 @@ import { fetchSmurfs } from "../actions";
 const SmurfList = ({ loading, smurfs }) => {
 
   useEffect(() => {
-    console.log('SmurfList component')
     try {
       fetchSmurfs();
     } catch (err) {
@@ -20,9 +19,8 @@ const SmurfList = ({ loading, smurfs }) => {
 
   return (
     <div className="listContainer">
-      TEST TEST TEST
       {smurfs.map((smurf) => (
-        <Smurf smurf={smurf} />
+        <Smurf smurf={smurf} key={smurf.id || Date.now()} />
       ))}
     </div>
   );
